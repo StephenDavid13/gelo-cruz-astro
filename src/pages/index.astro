@@ -4,11 +4,40 @@ import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import { getPosts } from "../utils/sanity";
 
+import Navigation from '../components/Navigation.astro';
+
 const posts = await getPosts();
 ---
+<Navigation />
+
+<h1 class="hidden">Gelo Cruz - Unravel out now</h1>
+
+<div class="video-bg">
+	<video autoplay muted loop>
+		<source type="video/mp4" src="horizon-teaser.mp4" />
+		Your browser does not support the video tag.
+	</video>
+	<div class="overlay"></div>
+</div>
+
 
 <Layout title="Welcome to Astro.">
   <section>
     {posts.length ? posts.map((post) => <Card post={post} />) : <Welcome />}
   </section>
 </Layout>
+
+
+<style lang="scss">
+  .video-bg {
+  @apply relative w-screen h-screen;
+
+  video {
+    @apply absolute top-0 left-0 w-full h-full object-cover;
+  }
+
+  .overlay {
+    @apply absolute top-0 left-0 w-full h-full bg-black/40;
+  }
+}
+</style>

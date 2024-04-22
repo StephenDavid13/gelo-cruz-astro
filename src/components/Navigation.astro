@@ -1,0 +1,58 @@
+<header class="header-nav">
+	<div class="logo">
+		<a href="/"><img src="gc-logo.png" alt="Gelo Cruz Logo"/></a>
+	</div>
+
+	<button id="menu" class="menu-icon">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+</header>
+
+<style lang="scss">
+    header {
+      @apply py-4 bg-black/75 absolute top-0 z-10 w-full px-12 flex items-center;
+  
+      .logo {
+        @apply w-8;
+      }
+  
+      .menu-icon {
+        @apply w-8 h-7 flex flex-col justify-between cursor-pointer ml-auto;
+  
+        .bar {
+          @apply w-full h-1 bg-white;
+          transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  
+          &:nth-child(2) {
+            @apply my-1;
+          }
+        }
+  
+        // Styles for the active state
+        &.is-open {
+          .bar:first-child {
+            transform: translateY(15px) rotate(45deg);
+          }
+  
+          .bar:nth-child(2) {
+            @apply opacity-0;
+          }
+  
+          .bar:last-child {
+            transform: translateY(-9px) rotate(-45deg);
+          }
+        }
+      }
+    }
+  
+    .nav-bar {
+      @apply absolute z-10 text-white text-center w-screen bg-black/85 pt-[30vh] px-12 mt-20;
+      height: calc(100vh - 5rem);
+  
+      & > div {
+        @apply text-5xl mb-10;
+      }
+    }
+  </style>
