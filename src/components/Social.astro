@@ -1,0 +1,14 @@
+---
+const { platform, username, icon } = Astro.props;
+
+import { siYoutube } from 'simple-icons';
+---
+
+<a href={`https://www.${platform}.com/${username}`} target="_blank"><img height="32" width="32" src={icon} /></a>
+
+<style>
+    img {
+        @apply opacity-50 hover:opacity-100;
+        transition: all .5s ease;
+    }
+</style>

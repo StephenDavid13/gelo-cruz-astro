@@ -1,0 +1,30 @@
+---
+import Social from './Social.astro';
+---
+
+<footer>
+    <div class="socials-wrap">
+        <div class="socials-wrap-inner">
+            <Social platform="youtube" username="@gelocruzofficial" icon="https://cdn.simpleicons.org/youtube/white" />
+            <Social platform="facebook" username="gelocruzofficial" icon="https://cdn.simpleicons.org/facebook/white" />
+            <Social platform="instagram" username="invisibleants" icon="https://cdn.simpleicons.org/instagram/white" />
+            <Social platform="tiktok" username="@_invisibleants" icon="https://cdn.simpleicons.org/tiktok/white" />
+        </div>
+    </div>
+   
+</footer>
+
+<style>
+    footer {
+        @apply fixed top-[50%] right-0 text-right;
+        transform: translateY(-50%);
+
+        .socials-wrap {
+            @apply mx-12 float-end;
+
+            .socials-wrap-inner {
+                @apply flex gap-5 flex-col;
+            }
+        }
+    }
+</style>

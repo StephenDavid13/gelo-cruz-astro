@@ -1,5 +1,6 @@
 ---
 import $ from 'jquery';
+import { slide } from 'astro:transitions';
 
 interface Props {
   header: string;
@@ -11,7 +12,7 @@ const { header} = Astro.props;
   $('#menu').on('click', () => {
     console.log("TESTTTT");
     $('#menu').toggleClass('is-open');
-    $('#main-menu').toggleClass('hidden');
+    $('#main-menu').toggleClass('hidden-nav');
   });
 </script>
 
@@ -30,7 +31,7 @@ const { header} = Astro.props;
     <span class="bar"></span>
   </button>
 
-  <div id="main-menu" class="hidden">
+  <div id="main-menu" class="hidden-nav" transition:animate=fade>
     <ul>
       <li class="nav-menu-item profile-menu">
         <a href="/profile" data-astro-reload>Profile</a>
@@ -39,7 +40,13 @@ const { header} = Astro.props;
         <a href="/discography" data-astro-reload>Discography</a>
       </li>
       <li class="nav-menu-item news-menu">
+        <a href="/video" data-astro-reload>Videos</a>
+      </li>
+      <li class="nav-menu-item news-menu">
         <a href="/news" data-astro-reload>News</a>
+      </li>
+      <li class="nav-menu-item contact-menu">
+        <a href="/contact" data-astro-reload>Contact</a>
       </li>
     </ul>
   </div>
@@ -47,7 +54,7 @@ const { header} = Astro.props;
 
 <style lang="scss">
     header {
-      @apply py-4 bg-black/75 absolute top-0 z-10 w-full px-12 flex items-center;
+      @apply py-4 bg-black/90 absolute top-0 z-10 w-full px-12 flex items-center;
       height: 80px;
 
       .logo {
@@ -86,18 +93,26 @@ const { header} = Astro.props;
         }
       }
     }
-
-    
   
     #main-menu {
-      @apply absolute z-10 text-white text-center w-screen bg-black/75 pt-[30vh] px-12 mt-20 left-0 top-0;
+      @apply absolute text-white text-center w-screen bg-black/90 top-20 left-0;
       height: calc(100vh - 5rem);
+      transition: all .5s ease;
+
+      &.hidden-nav {
+        @apply overflow-hidden h-0;
+      }
   
       & > ul {
-        @apply text-5xl;
+        @apply text-5xl relative top-[50%];
+        transform: translateY(calc(-50% - 5rem));
 
         li {
           @apply mb-10;
+
+          a {
+            @apply no-underline;
+          }
         }
       }
     }

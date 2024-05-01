@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import Navigation from '../components/Navigation.astro';
+import Footer from '../components/SocialMedia.astro';
 
 interface Props {
   title: string;
@@ -51,13 +52,10 @@ const { title, addClass } = Astro.props;
     <Navigation header={title} />
 
     <div class:list={["main-container", addClass ]}>
-      <header class="header">
-      </header>
       <main>
         <slot />
       </main>
-      <footer class="footer">
-      </footer>
+      <Footer />
     </div>
   </body>
 </html>
@@ -103,7 +101,7 @@ const { title, addClass } = Astro.props;
       @apply text-sm/7 block;
     }
     a {
-      @apply block;
+      @apply block underline;
     }
     ol {
       @apply text-sm/7 list-inside list-decimal block;
