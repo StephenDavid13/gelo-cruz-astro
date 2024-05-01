@@ -9,6 +9,12 @@ export async function getPosts(): Promise<Post[]> {
   );
 }
 
+export async function getDiscography(): Promise<Post[]> {
+  return await useSanityClient().fetch(
+    groq`*[_type == "discography" && defined(slug.current)] | order(_createdAt desc)`
+  );
+}
+
 export async function getPost(slug: string): Promise<Post> {
   return await useSanityClient().fetch(
     groq`*[_type == "post" && slug.current == $slug][0]`,
@@ -25,5 +31,16 @@ export interface Post {
   slug: Slug;
   excerpt?: string;
   mainImage?: ImageAsset;
+  body: PortableTextBlock[];
+}
+
+export interface Discography {
+  _type: "discography";
+  _createdAt: string;
+  title: string;
+  slug: Slug;
+  releaseDate: string;
+  cover?: ImageAsset;
+  listenURL?: string;
   body: PortableTextBlock[];
 }

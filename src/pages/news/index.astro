@@ -1,0 +1,13 @@
+---
+import Card from "../../components/Card.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getPosts } from "../../utils/sanity";
+
+const posts = await getPosts();
+---
+
+<Layout title="Gelo Cruz News" addClass="">
+    <section>
+        {posts.length ? posts.map((post) => <Card post={post} />) : "No posts here."}
+    </section>
+</Layout>

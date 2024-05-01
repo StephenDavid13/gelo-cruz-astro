@@ -1,3 +1,13 @@
+---
+import $ from 'jquery';
+---
+<script>
+  $('#menu').on('click', () => {
+    $('#menu').toggleClass('is-open');
+    $('#main-menu').toggleClass('hidden');
+  });
+</script>
+
 <header class="header-nav">
 	<div class="logo">
 		<a href="/"><img src="gc-logo.png" alt="Gelo Cruz Logo"/></a>
@@ -8,12 +18,24 @@
     <span class="bar"></span>
     <span class="bar"></span>
   </button>
+
+  <div id="main-menu" class="hidden">
+    <ul>
+      <li class="nav-menu-item news-menu">
+        <a href="/news">News</a>
+      </li>
+      <li class="nav-menu-item discography-menu">
+        <a href="/discography">Discography</a>
+      </li>
+    </ul>
+  </div>
 </header>
 
 <style lang="scss">
     header {
       @apply py-4 bg-black/75 absolute top-0 z-10 w-full px-12 flex items-center;
-  
+      height: 80px;
+
       .logo {
         @apply w-8;
       }
@@ -46,13 +68,19 @@
         }
       }
     }
+
+    
   
-    .nav-bar {
-      @apply absolute z-10 text-white text-center w-screen bg-black/85 pt-[30vh] px-12 mt-20;
+    #main-menu {
+      @apply absolute z-10 text-white text-center w-screen bg-black/75 pt-[30vh] px-12 mt-20 left-0 top-0;
       height: calc(100vh - 5rem);
   
-      & > div {
-        @apply text-5xl mb-10;
+      & > ul {
+        @apply text-5xl;
+
+        li {
+          @apply mb-10;
+        }
       }
     }
-  </style>
+</style>
