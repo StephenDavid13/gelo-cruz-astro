@@ -1,0 +1,32 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Profile" addClass="isHomepage">
+  <div class="video-bg">
+    <video autoplay muted loop>
+      <source type="video/mp4" src="horizon-teaser.mp4" />
+      Your browser does not support the video tag Should now be version 18
+    </video>
+    <div class="overlay">
+      <h2>Gelo Evasco</h2>
+      <h4>Manager</h4>
+      <h4><a href="tel:+639985523930">+639985523930</a></h4>
+    </div>
+  </div>
+</Layout>
+
+
+<style lang="scss">
+  .video-bg {
+  @apply relative w-screen h-screen;
+
+  video {
+    @apply absolute top-0 left-0 w-full h-full object-cover;
+  }
+
+  .overlay {
+    @apply absolute top-0 left-0 w-full h-full bg-black/70 content-center text-center;
+  }
+}
+</style>
