@@ -1,5 +1,11 @@
 ---
 import $ from 'jquery';
+
+interface Props {
+  header: string;
+}
+
+const { header} = Astro.props;
 ---
 <script>
   $('#menu').on('click', () => {
@@ -14,6 +20,10 @@ import $ from 'jquery';
 		<a href="/" data-astro-reload><img src="gc-logo.png" alt="Gelo Cruz Logo"/></a>
 	</div>
 
+  <div class="header-title">
+    <h2>{header}</h2>
+  </div>
+
 	<button id="menu" class="menu-icon">
     <span class="bar"></span>
     <span class="bar"></span>
@@ -22,11 +32,14 @@ import $ from 'jquery';
 
   <div id="main-menu" class="hidden">
     <ul>
-      <li class="nav-menu-item news-menu">
-        <a href="/news" data-astro-reload>News</a>
+      <li class="nav-menu-item profile-menu">
+        <a href="/profile" data-astro-reload>Profile</a>
       </li>
       <li class="nav-menu-item discography-menu">
         <a href="/discography" data-astro-reload>Discography</a>
+      </li>
+      <li class="nav-menu-item news-menu">
+        <a href="/news" data-astro-reload>News</a>
       </li>
     </ul>
   </div>
@@ -39,6 +52,10 @@ import $ from 'jquery';
 
       .logo {
         @apply w-8;
+      }
+
+      .header-title {
+        @apply ml-20;
       }
   
       .menu-icon {

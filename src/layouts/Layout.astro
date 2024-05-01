@@ -1,5 +1,4 @@
 ---
-// https://docs.astro.build/en/guides/view-transitions/
 import { ViewTransitions } from 'astro:transitions';
 import Navigation from '../components/Navigation.astro';
 
@@ -49,7 +48,7 @@ const { title, addClass } = Astro.props;
     <ViewTransitions />
   </head>
   <body>
-    <Navigation />
+    <Navigation header={title} />
 
     <div class:list={["main-container", addClass ]}>
       <header class="header">
@@ -75,27 +74,39 @@ const { title, addClass } = Astro.props;
 </style>
 
 <style is:global>
-  :root {
-    --font-family-sans: Inter;
-    --font-family-serif: PT Serif;
-    --font-family-mono: IMB Plex Mono;
-
-    --white: #fff;
-    --black: #101112;
-    --gray-200: #ced2d9;
-    --gray-600: #6e7683;
-    --blue-600: #1e61cd;
-    --magenta-100: #f9d7eb;
-  }
-
   html {
-    background-color: var(--black);
-    color: var(--white);
-    font-family: var(--font-family-sans), var(--font-family-serif), sans-serif;
+    @apply bg-brand-black text-white font-sans;
     text-size-adjust: 100%;
   }
 
   body {
-    margin: 0;
+    @apply m-0;
+    body > * {
+      @apply block;
+    }
+    h1 {
+      @apply text-4xl lg:text-7xl/[5rem] font-black block;
+    }
+    h2 {
+      @apply text-2xl lg:text-4xl/[5rem] font-bold block;
+    }
+    h3 {
+      @apply text-xl lg:text-3xl/[5rem] font-bold block;
+    }
+    h4 {
+      @apply text-xl/8 font-bold leading-8 block;
+    }
+    h5 {
+      @apply text-lg font-bold block;
+    }
+    p {
+      @apply text-sm/7 block;
+    }
+    a {
+      @apply block;
+    }
+    ol {
+      @apply text-sm/7 list-inside list-decimal block;
+    }
   }
 </style>
