@@ -9,7 +9,7 @@ export async function getPosts(): Promise<Post[]> {
   );
 }
 
-export async function getDiscography(): Promise<Post[]> {
+export async function getDiscography(): Promise<Discography[]> {
   return await useSanityClient().fetch(
     groq`*[_type == "discography" && defined(slug.current)] | order(_createdAt desc)`
   );
@@ -39,7 +39,7 @@ export interface Discography {
   _createdAt: string;
   title: string;
   slug: Slug;
-  releaseDate: string;
+  releaseDate?: string;
   cover?: ImageAsset;
   listenURL?: string;
   body: PortableTextBlock[];

@@ -3,11 +3,11 @@ import CardDiscography from "../../components/CardDiscography.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getDiscography } from "../../utils/sanity";
 
-const posts = await getDiscography();
+const discographies = await getDiscography();
 ---
 
 <Layout title="Gelo Cruz News" addClass="">
     <section>
-        {posts.length ? posts.map((post) => <CardDiscography post={post} />) : "No posts here."}
+        {discographies.length ? discographies.map((discography) => <CardDiscography discography={discography} />) : "No posts here."}
     </section>
 </Layout>

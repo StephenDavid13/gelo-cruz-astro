@@ -1,22 +1,22 @@
 ---
 import { formatDate } from "../utils";
 import { urlFor } from "../utils/image";
-import type { Discography, Post } from "../utils/sanity";
+import type { Discography } from "../utils/sanity";
 
 interface Props {
-  post: Discography;
+  discography: Discography;
 
 }
 
-const { post } = Astro.props;
+const { discography } = Astro.props;
 ---
 
 <div class="card">
   {
-    post.cover ? (
+    discography.cover ? (
       <img
         class="card__cover"
-        src={urlFor(post.cover).width(500).height(300).url()}
+        src={urlFor(discography.cover).width(500).height(300).url()}
         alt="Cover image"
       />
     ) : (
@@ -25,16 +25,23 @@ const { post } = Astro.props;
   }
   <div class="card__container">
     <h3 class="card__title">
-      {post.title}
+      {discography.title}
     </h3>
-    <p class="card__date">
-      {formatDate(post.releaseDate)}
-    </p>
     {
-      post.listenURL ? (
+      discography.releaseDate ? (
+      <p class="card__date">
+        {formatDate(discography.releaseDate)}
+      </p>
+      ) : (
+        <p></p>
+      )
+    }
+    
+    {
+      discography.listenURL ? (
         <a
           class="card__listen"
-          href={post.listenURL}
+          href={discography.listenURL}
           target="_blank"
         >Listen</a>
       ) : (

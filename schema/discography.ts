@@ -32,9 +32,6 @@ export default defineType({
       name: 'releaseDate',
       title: 'Release Date',
       type: 'date',
-      options: {
-        hotspot: true,
-      },
     }),
     defineField({
       name: 'listenURL',
