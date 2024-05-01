@@ -23,8 +23,8 @@ import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schema";
 
 export default defineConfig({
-  name: "project-name",
-  title: "Project Name",
+  name: "gelo-cruz",
+  title: "Gelo Cruz",
   projectId,
   dataset,
   plugins: [deskTool(), visionTool()],
