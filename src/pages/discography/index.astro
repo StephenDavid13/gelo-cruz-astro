@@ -6,8 +6,15 @@ import { getDiscography } from "../../utils/sanity";
 const discographies = await getDiscography();
 ---
 
-<Layout title="Gelo Cruz News" addClass="">
-    <section>
+<Layout title="Discography" addClass="">
+    <section class="discography-wrap">
         {discographies.length ? discographies.map((discography) => <CardDiscography discography={discography} />) : "No posts here."}
     </section>
 </Layout>
+
+<style lang="scss">
+    .discography-wrap {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
