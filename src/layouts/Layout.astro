@@ -49,7 +49,7 @@ const { title, addClass } = Astro.props;
     <ViewTransitions />
   </head>
   <body>
-    <Navigation client:load transition:persist />
+    <Navigation />
 
     <div class:list={["main-container", addClass ]}>
       <header class="header">
