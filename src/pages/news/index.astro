@@ -6,7 +6,7 @@ import { getPosts } from "../../utils/sanity";
 const posts = await getPosts();
 ---
 
-<Layout title="Gelo Cruz News" addClass="">
+<Layout title="News" addClass="">
     <section>
         {posts.length ? posts.map((post) => <Card post={post} />) : "No posts here."}
     </section>
