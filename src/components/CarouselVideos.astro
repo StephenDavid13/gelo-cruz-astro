@@ -1,0 +1,32 @@
+---
+import {YouTube} from 'astro-lazy-youtube-embed'
+import type { Video } from "../utils/sanity";
+import { register } from 'swiper/element/bundle';
+
+interface Props {
+  videos: Video;
+
+}
+
+const { videos } = Astro.props;
+register()
+---
+{
+  videos.videoID && videos.title ? (
+  <YouTube
+    title={videos.title}
+    videoId={videos.videoID}
+    embedParams={{
+      rel: 0,
+      modestbranding: 1,
+      controls: 0,
+      autoplay: 1
+    }}
+  />
+  ) : (
+    <span></span>
+  )
+}
+
+<style lang="scss">
+</style>

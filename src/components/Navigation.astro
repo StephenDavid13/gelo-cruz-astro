@@ -40,7 +40,7 @@ const { header} = Astro.props;
         <a href="/discography" data-astro-reload>Discography</a>
       </li>
       <li class="nav-menu-item news-menu">
-        <a href="/video" data-astro-reload>Videos</a>
+        <a href="/videos" data-astro-reload>Videos</a>
       </li>
       <li class="nav-menu-item news-menu">
         <a href="/news" data-astro-reload>News</a>
@@ -53,67 +53,67 @@ const { header} = Astro.props;
 </header>
 
 <style lang="scss">
-    header {
-      @apply py-4 bg-black/90 absolute top-0 z-10 w-full px-12 flex items-center;
-      height: 80px;
+  header {
+    @apply py-4 bg-black/95 absolute top-0 z-10 w-full px-12 flex items-center;
+    height: 80px;
 
-      .logo {
-        @apply w-8;
-      }
+    .logo {
+      @apply w-8;
+    }
 
-      .header-title {
-        @apply ml-20;
-      }
-  
-      .menu-icon {
-        @apply w-8 h-7 flex flex-col justify-between cursor-pointer ml-auto;
-  
-        .bar {
-          @apply w-full h-1 bg-white;
-          transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  
-          &:nth-child(2) {
-            @apply my-1;
-          }
+    .header-title {
+      @apply ml-20;
+    }
+
+    .menu-icon {
+      @apply w-8 h-7 flex flex-col justify-between cursor-pointer ml-auto;
+
+      .bar {
+        @apply w-full h-1 bg-white;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+        &:nth-child(2) {
+          @apply my-1;
         }
-  
-        // Styles for the active state
-        &.is-open {
-          .bar:first-child {
-            transform: translateY(15px) rotate(45deg);
-          }
-  
-          .bar:nth-child(2) {
-            @apply opacity-0;
-          }
-  
-          .bar:last-child {
-            transform: translateY(-9px) rotate(-45deg);
-          }
+      }
+
+      // Styles for the active state
+      &.is-open {
+        .bar:first-child {
+          transform: translateY(15px) rotate(45deg);
+        }
+
+        .bar:nth-child(2) {
+          @apply opacity-0;
+        }
+
+        .bar:last-child {
+          transform: translateY(-9px) rotate(-45deg);
         }
       }
     }
-  
-    #main-menu {
-      @apply absolute text-white text-center w-screen bg-black/90 top-20 left-0;
-      height: calc(100vh - 5rem);
-      transition: all .5s ease;
+  }
 
-      &.hidden-nav {
-        @apply overflow-hidden h-0;
-      }
-  
-      & > ul {
-        @apply text-5xl relative top-[50%];
-        transform: translateY(calc(-50% - 5rem));
+  #main-menu {
+    @apply absolute text-white text-center w-screen bg-black/95 top-20 left-0;
+    height: calc(100vh - 5rem);
+    transition: all .5s ease;
 
-        li {
-          @apply mb-10;
+    &.hidden-nav {
+      @apply overflow-hidden h-0;
+    }
 
-          a {
-            @apply no-underline;
-          }
+    & > ul {
+      @apply lg:text-5xl text-2xl relative top-[50%];
+      transform: translateY(calc(-50% - 5rem));
+
+      li {
+        @apply mb-10;
+
+        a {
+          @apply no-underline;
         }
       }
     }
+  }
 </style>

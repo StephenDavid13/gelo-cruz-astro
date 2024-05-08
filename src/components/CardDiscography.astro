@@ -57,15 +57,14 @@ const { discography } = Astro.props;
 
 <style lang="scss">
   .card {
-    @apply lg:flex lg:flex-row gap-20 h-[50vh] border-b-2 border-b-neutral-800;
+    @apply md:flex md:flex-row gap-5 border-b-2 border-b-neutral-800;
 
     .card__container {
-      @apply my-8;
+      @apply my-8 lg:mx-0 mx-4;
     }
 
     .card__cover {
       @apply w-full max-w-fit object-contain;
-      height: calc(50vh - 2px);
     }
 
     .card__listen {

@@ -51,8 +51,8 @@ export default defineType({
       mainImage: 'cover',
     },
     prepare(selection) {
-      const {release} = selection
-      return {...selection, subtitle: release}
+      const {title, release} = selection
+      return {...selection, title: title && `released by ${release}`}
     },
   },
 })

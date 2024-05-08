@@ -1,0 +1,26 @@
+---
+import React from "react";
+
+import CarouselVideos from "../../components/CarouselVideos.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getVideos } from "../../utils/sanity";
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+
+const videos = await getVideos();
+
+---
+
+<Layout title="Videos" addClass="">
+    <section class="mx-12 py-10">
+        <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        onSlideChange={() => console.log('slide change')}
+        onSwiper={(swiper) => console.log(swiper)}>
+            {videos.length ? videos.map((video) => 
+                <SwiperSlide><CarouselVideos videos={video} /></SwiperSlide>) : "No videos here."}
+        </Swiper>
+    </section>
+</Layout>

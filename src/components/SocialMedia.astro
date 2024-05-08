@@ -16,11 +16,10 @@ import Social from './Social.astro';
 
 <style>
     footer {
-        @apply fixed top-[50%] right-0 text-right;
-        transform: translateY(-50%);
+        @apply fixed top-0 right-0 text-right lg:bg-transparent bg-black/80 h-full content-center;
 
         .socials-wrap {
-            @apply mx-12 float-end;
+            @apply float-end lg:mx-12 mx-5 my-5;
 
             .socials-wrap-inner {
                 @apply flex gap-5 flex-col;
