@@ -13,7 +13,8 @@ const videos = await getVideos();
             {videos.length ? videos.map((video) => 
                 <div class="swiper-slide"><CarouselVideos videos={video} /></div>) : "No videos here."}
         </div>
-        <div class="swiper-pagination slider-bullets"></div>
+
+        <div class="swiper-pagination"></div>
     </section>
 </Layout>
 
@@ -30,7 +31,6 @@ const videos = await getVideos();
 
             &.swiper-pagination-bullet-active {
                 @apply bg-white opacity-100 h-5 rounded-3xl #{!important};
-                
             }
         }
         
@@ -46,39 +46,15 @@ const videos = await getVideos();
         direction: 'vertical',
         effect: 'slide',
         speed: 1500,
+        resistanceRatio: 0,
+        rewind: true,
+        shortSwipes: false,
         mousewheel: {
             enabled: true,
         },
         pagination: {
             el: ".swiper-pagination",
             type: 'bullets',
-            /*
-            bulletActiveClass: "slider-bullet-active",
-            bulletClass: "slider-bullet"
-            */
-
         },
-        injectStyles: [
-            `
-            .swiper-pagination-bullet {
-               opacity: 1 !important;
-            }
-            
-            `
-        ]
     })
 </script>
-
-<!---
-    opacity: var(--swiper-pagination-bullet-opacity, 1);
-    background: var(--swiper-pagination-color, var(--swiper-theme-color));
-
-    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 8px));
-    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 8px));
-    display: block;
-    border-radius: 50%;
-    background: var(--swiper-pagination-bullet-inactive-color, #000);
-    opacity: var(--swiper-pagination-bullet-inactive-opacity, .2);
- -->
-
-
