@@ -23,6 +23,7 @@ const { videos } = Astro.props;
         autoplay: 1
       }}
     />
+    <div class="video-title"><h3>{videos.title}</h3></div>
     ) : (
       <span></span>
     )

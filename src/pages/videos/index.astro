@@ -1,6 +1,4 @@
 ---
-import React from "react";
-
 import CarouselVideos from "../../components/CarouselVideos.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getVideos } from "../../utils/sanity";
@@ -10,7 +8,7 @@ const videos = await getVideos();
 ---
 
 <Layout title="Videos" addClass="">
-    <section class="swiper relative top-0 mx-12 py-10">
+    <section id="swiper-video" class="swiper relative top-0 mx-12 py-10">
         <div class="swiper-wrapper">
             {videos.length ? videos.map((video) => 
                 <div class="swiper-slide"><CarouselVideos videos={video} /></div>) : "No videos here."}
@@ -20,22 +18,43 @@ const videos = await getVideos();
     </section>
 </Layout>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<style lang="scss" is:global>
+    #swiper-video {
+        @apply -ml-20;
+        max-height: calc(100vh - 5rem);
+    }
+
+    div.swiper-pagination {
+        @apply top-auto bottom-4 right-20 #{!important};
+        .swiper-pagination-bullet {
+            @apply bg-[#aaaaaa] opacity-75 #{!important};
+
+            &.swiper-pagination-bullet-active {
+                @apply bg-white opacity-100 h-5 rounded-3xl #{!important};
+            }
+        }
+        
+        
+    }
+    
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script is:inline>
     new Swiper('.swiper', {
         direction: 'vertical',
         effect: 'slide',
-        grabCursor: 'true',
+        speed: 1500,
+        resistanceRatio: 0,
+        rewind: true,
+        shortSwipes: false,
         mousewheel: {
-            invert: false,
+            enabled: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            type: 'bullets',
         },
     })
 </script>
-
-<style lang="scss">
-    .swiper {
-        @apply -ml-20;
-        max-height: calc(100vh - 5rem);
-    }
-</style>
