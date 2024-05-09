@@ -9,12 +9,14 @@ const videos = await getVideos();
 
 ---
 
-<Layout title="Videos" addClass="" class:list={['overflow-hidden', 'no-scrollbar']}>
+<Layout title="Videos" addClass="">
     <section class="swiper relative top-0 mx-12 py-10">
-        <div class="swiper-wrapper overflow-hidden">
+        <div class="swiper-wrapper">
             {videos.length ? videos.map((video) => 
                 <div class="swiper-slide"><CarouselVideos videos={video} /></div>) : "No videos here."}
         </div>
+
+        <div class="swiper-pagination"></div>
     </section>
 </Layout>
 
@@ -23,23 +25,17 @@ const videos = await getVideos();
 <script is:inline>
     new Swiper('.swiper', {
         direction: 'vertical',
-        effect: 'fade',
+        effect: 'slide',
         grabCursor: 'true',
         mousewheel: {
-            invert: true,
+            invert: false,
         },
     })
 </script>
 
-<style>
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .no-scrollbar {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
+<style lang="scss">
+    .swiper {
+        @apply -ml-20;
+        max-height: calc(100vh - 5rem);
     }
 </style>
