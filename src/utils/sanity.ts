@@ -35,7 +35,7 @@ export interface Post {
   _createdAt: string;
   title?: string;
   slug: Slug;
-  excerpt?: string;
+  excerpt: PortableTextBlock[];
   mainImage?: ImageAsset;
   body: PortableTextBlock[];
 }

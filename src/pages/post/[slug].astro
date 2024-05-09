@@ -34,7 +34,6 @@ const post = await getPost(slug);
     }
     <div class="post__container">
       <h1 class="post__title">{post.title}</h1>
-      <p class="post__excerpt">{post.excerpt}</p>
       <p class="post__date">
         {formatDate(post._createdAt)}
       </p>
