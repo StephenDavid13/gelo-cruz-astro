@@ -1,0 +1,37 @@
+---
+import {YouTube} from 'astro-lazy-youtube-embed'
+import type { Video } from "../utils/sanity";
+
+interface Props {
+  videos: Video;
+
+}
+
+const { videos } = Astro.props;
+---
+
+<div class="video-wrap max-w-[60%] m-auto">
+  {
+    videos.videoID && videos.title ? (
+    <YouTube
+      title={videos.title}
+      videoId={videos.videoID}
+      embedParams={{
+        rel: 0,
+        modestbranding: 1,
+        controls: 0,
+        autoplay: 1
+      }}
+    />
+    ) : (
+      <span></span>
+    )
+  }
+</div>
+
+
+<style lang="scss">
+  .video-wrap {
+    margin: 25vh auto;
+  }
+</style>

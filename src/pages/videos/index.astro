@@ -1,0 +1,41 @@
+---
+import React from "react";
+
+import CarouselVideos from "../../components/CarouselVideos.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getVideos } from "../../utils/sanity";
+
+const videos = await getVideos();
+
+---
+
+<Layout title="Videos" addClass="">
+    <section class="swiper relative top-0 mx-12 py-10">
+        <div class="swiper-wrapper">
+            {videos.length ? videos.map((video) => 
+                <div class="swiper-slide"><CarouselVideos videos={video} /></div>) : "No videos here."}
+        </div>
+
+        <div class="swiper-pagination"></div>
+    </section>
+</Layout>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script is:inline>
+    new Swiper('.swiper', {
+        direction: 'vertical',
+        effect: 'slide',
+        grabCursor: 'true',
+        mousewheel: {
+            invert: false,
+        },
+    })
+</script>
+
+<style lang="scss">
+    .swiper {
+        @apply -ml-20;
+        max-height: calc(100vh - 5rem);
+    }
+</style>
