@@ -10,7 +10,7 @@ interface Props {
 const { videos } = Astro.props;
 ---
 
-<div class="video-wrap max-w-[60%] m-auto">
+<div class="video-wrap m-auto">
   {
     videos.videoID && videos.title ? (
     <YouTube
@@ -33,6 +33,10 @@ const { videos } = Astro.props;
 
 <style lang="scss">
   .video-wrap {
-    margin: 25vh auto;
+    @apply md:mt-[5vh] mt-[15vh] mx-auto w-[80vw];
+
+    iframe {
+      @apply w-full max-w-full max-h-[60vh] my-0 mx-auto #{!important};
+    }
   }
 </style>
