@@ -48,7 +48,7 @@ const { title, addClass } = Astro.props;
     <title>{title}</title>
     <ViewTransitions />
   </head>
-  <body >
+  <body class="overflow-hidden">
     <Navigation header={title} />
 
     <div class:list={["main-container", addClass ]}>
