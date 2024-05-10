@@ -17,7 +17,6 @@ module.exports = {
 			'sans': 'Inter',
 			'serif': 'PT Serif',
 			'mono': 'IMB Plex Mono',
-
 		}
 	},
 	plugins: [],

@@ -83,10 +83,10 @@ const { title, addClass } = Astro.props;
       @apply block;
     }
     h1 {
-      @apply text-4xl lg:text-7xl/[5rem] font-black block;
+      @apply text-4xl/loose lg:text-7xl/[5rem] font-black block;
     }
     h2 {
-      @apply text-2xl lg:text-4xl/[5rem] font-bold block;
+      @apply text-2xl/loose lg:text-4xl/[5rem] font-bold block;
     }
     h3 {
       @apply text-xl lg:text-3xl/[5rem] font-bold block;
@@ -98,7 +98,7 @@ const { title, addClass } = Astro.props;
       @apply text-lg font-bold block;
     }
     p {
-      @apply text-sm/7 block;
+      @apply text-sm/7 block mb-8;
     }
     a {
       @apply block underline;

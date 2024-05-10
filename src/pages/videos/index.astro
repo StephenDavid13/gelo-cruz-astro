@@ -8,7 +8,7 @@ const videos = await getVideos();
 ---
 
 <Layout title="Videos" addClass="">
-    <section id="swiper-video" class="swiper relative top-0 mx-12 py-10">
+    <section id="swiper-video" class="swiper">
         <div class="swiper-wrapper">
             {videos.length ? videos.map((video) => 
                 <div class="swiper-slide"><CarouselVideos videos={video} /></div>) : "No videos here."}
@@ -20,7 +20,7 @@ const videos = await getVideos();
 
 <style lang="scss" is:global>
     #swiper-video {
-        @apply -ml-20;
+        @apply relative top-0 mx-12 py-10 -ml-4;
         max-height: calc(100vh - 5rem);
     }
 
@@ -33,8 +33,6 @@ const videos = await getVideos();
                 @apply bg-white opacity-100 h-5 rounded-3xl #{!important};
             }
         }
-        
-        
     }
     
 </style>

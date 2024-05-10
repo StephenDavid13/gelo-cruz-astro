@@ -20,18 +20,18 @@ const post = await getPost(slug);
 ---
 
 <Layout title={post.title!} addClass="">
-  <section class="post mx-20 lg:ml-12 ml-4 py-10">
-    {
-      post.mainImage ? (
-        <img
-          class="post__cover"
-          src={urlFor(post.mainImage).url()}
-          alt="Cover image"
-        />
-      ) : (
-        <div class="post__cover--none" />
-      )
-    }
+  {
+    post.mainImage ? (
+      <img
+        class="post__cover"
+        src={urlFor(post.mainImage).url()}
+        alt="Cover image"
+      />
+    ) : (
+      <div class="post__cover--none" />
+    )
+  }
+  <section class="post mx-20 lg:ml-12 ml-4 pb-10">
     <div class="post__container">
       <h1 class="post__title">{post.title}</h1>
       <p class="post__date">
@@ -45,4 +45,22 @@ const post = await getPost(slug);
 </Layout>
 
 <style>
+  .post__cover,
+  .post__cover--none {
+    @apply w-full h-[450px] object-cover mb-10;
+  }
+
+  .post__cover--none {
+    background: var(--black);
+  }
+
+  .post {
+    .post__title {
+      
+    }
+
+    .post__date {
+      @apply text-sm/snug pb-8;
+    }
+  }
 </style>
