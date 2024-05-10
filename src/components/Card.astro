@@ -28,6 +28,7 @@ const { post } = Astro.props;
       <a
         class="card__link"
         href={`/post/${post.slug.current}`}
+        data-astro-reload
       >
         {post.title}
       </a>
