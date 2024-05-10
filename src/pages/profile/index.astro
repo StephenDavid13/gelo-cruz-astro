@@ -1,8 +1,8 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import BGVideoLayout from "../../layouts/BGVideoLayout.astro";
 ---
 
-<Layout title="Profile" addClass="isHomepage">
+<BGVideoLayout title="Profile" addClass="isHomepage">
   <div class="video-bg">
     <video autoplay muted loop>
       <source type="video/mp4" src="horizon-teaser.mp4" />
@@ -10,12 +10,12 @@ import Layout from "../../layouts/Layout.astro";
     </video>
     <div class="overlay"></div>
   </div>
-</Layout>
+</BGVideoLayout>
 
 
 <style lang="scss">
-  .video-bg {
-  @apply relative w-screen h-screen;
+.video-bg {
+  @apply relative w-screen h-screen overflow-hidden;
 
   video {
     @apply absolute top-0 left-0 w-full h-full object-cover;
