@@ -7,7 +7,7 @@ const posts = await getPosts();
 ---
 
 <Layout title="News" addClass="">
-    <section class="mx-12 py-10">
-        {posts.length ? posts.map((post) => <Card post={post} />) : "No posts here."}
+    <section class="mx-20 lg:ml-12 ml-4 py-10">
+        {posts.length ? posts.map((post) => <Card post={post} />): "No posts here."}
     </section>
 </Layout>
