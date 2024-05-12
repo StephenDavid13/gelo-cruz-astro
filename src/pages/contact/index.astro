@@ -1,11 +1,14 @@
 ---
 import BGVideoLayout from "../../layouts/BGVideoLayout.astro";
+import HorizonTeaser from "../../assets/horizon-teaser.mp4";
 ---
 
-<BGVideoLayout title="Contact" addClass="isHomepage">
+<BGVideoLayout title="" addClass="isHomepage">
+  <h1 class="hidden">Unravel by Gelo Cruz out now</h1>
+
   <div class="video-bg">
     <video autoplay muted loop playsinline>
-      <source type="video/mp4" src="horizon-teaser.mp4" />
+      <source type="video/mp4" src={HorizonTeaser} />
       Your browser does not support the video tag Should now be version 18
     </video>
     <div class="overlay">
