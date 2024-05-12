@@ -1,6 +1,7 @@
 ---
 import $ from 'jquery';
-import { slide } from 'astro:transitions';
+import { Image } from 'astro:assets';
+import GCLogo from '../assets/gc-logo.png'
 
 interface Props {
   header: string;
@@ -18,7 +19,7 @@ const { header} = Astro.props;
 
 <header class="header-nav">
 	<div class="logo">
-		<a href="/" data-astro-reload><img src="/gc-logo.png" alt="Gelo Cruz Logo"/></a>
+		<a href="/" data-astro-reload><Image src={GCLogo} alt="Gelo Cruz Logo"/></a>
 	</div>
 
   <div class="header-title">
