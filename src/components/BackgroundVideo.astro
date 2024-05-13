@@ -34,32 +34,27 @@
     
           },
           events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
+            onReady: function(e) {
+              e.target.playVideo();
+
+              setInterval(function (){
+                var current_time = e.target.getCurrentTime();
+                if (current_time > 14) {
+                  player.seekTo(0);
+                }
+              }, 10);
+            },
+            onStateChange: function(e) {
+              if (e.data === YT.PlayerState.PLAYING) {
+                youtubeEmbedElement.classList.add("loaded")
+              }
+
+              if (e.data === YT.PlayerState.ENDED) {
+                player.seekTo(0)
+              }
+            }
           }
         })
-      }
-
-      function onPlayerReady(event) {
-        event.target.playVideo();
-
-        setInterval(function (){
-          var current_time = event.target.getCurrentTime();
-          if (current_time > 14) {
-            interval_is_stopped = true;
-            player.seekTo(0);
-          }
-        }, 10);
-      }
-
-      function onPlayerStateChange(e) {
-        if (e.data === YT.PlayerState.PLAYING) {
-            youtubeEmbedElement.classList.add("loaded")
-        }
-
-        if (e.data === YT.PlayerState.ENDED) {
-            player.seekTo(startSeconds)
-        }
       }
     </script>
 </div>
