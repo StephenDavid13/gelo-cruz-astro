@@ -30,11 +30,12 @@
             fs: 0, 
             rel: 0,
             enablejsapi: 1,
-            muted: 1, 
+            mute: 1, 
     
           },
           events: {
             onReady: function(e) {
+              e.target.mute();
               e.target.playVideo();
 
               setInterval(function (){
