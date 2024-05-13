@@ -2,6 +2,7 @@
 import { ViewTransitions } from 'astro:transitions';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/SocialMedia.astro';
+import Backgroundvideo from "../components/BackgroundVideo.astro";
 
 interface Props {
   title: string;
@@ -22,7 +23,7 @@ const { title, addClass } = Astro.props;
     <link
       rel="icon"
       type="image/svg+xml"
-      href="/gc-logo.svg"
+      href="/favicon.svg"
     />
     <meta
       name="generator"
@@ -53,6 +54,7 @@ const { title, addClass } = Astro.props;
 
     <div class:list={["main-container", addClass ]}>
       <main>
+        <Backgroundvideo />
         <slot />
       </main>
       <Footer />
