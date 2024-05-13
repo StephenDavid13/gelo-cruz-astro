@@ -16,7 +16,7 @@
     
       onYouTubeIframeAPIReady = function() {
         player = new YT.Player(youtubeEmbedElement, {
-          videoId: '3t_Zvbw9LFU',
+          videoId: '5wS6muzmUHQ',
           width: "2460px",
           height: "1400px",
           playerVars: {
@@ -40,7 +40,7 @@
 
               setInterval(function (){
                 var current_time = e.target.getCurrentTime();
-                if (current_time > 14) {
+                if (current_time > 29.9) {
                   player.seekTo(0);
                 }
               }, 10);
