@@ -1,7 +1,6 @@
 ---
 import $ from 'jquery';
-import { Image } from 'astro:assets';
-import GCLogo from '../assets/gc-logo.png'
+import { Icon } from 'astro-icon/components';
 
 interface Props {
   header: string;
@@ -19,7 +18,7 @@ const { header} = Astro.props;
 
 <header class="header-nav">
 	<div class="logo">
-		<a href="/" data-astro-reload><Image src={GCLogo} alt="Gelo Cruz Logo"/></a>
+		<a href="/" data-astro-reload><Icon name="gc-logo" /></a>
 	</div>
 
   <div class="header-title">
@@ -60,6 +59,10 @@ const { header} = Astro.props;
 
     .logo {
       @apply w-8;
+
+      [data-icon="gc-logo"] {
+        @apply w-14 h-14;
+      }
     }
 
     .header-title {

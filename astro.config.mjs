@@ -18,8 +18,9 @@ import react from "@astrojs/react";
 // Change this depending on your hosting provider (Vercel, Netlify etc)
 // https://docs.astro.build/en/guides/server-side-rendering/#adding-an-adapter
 import vercel from "@astrojs/vercel/serverless";
-
 import tailwind from "@astrojs/tailwind";
+
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
@@ -34,5 +35,5 @@ export default defineConfig({
     // `false` if you want to ensure fresh data
     apiVersion: "2023-03-20" // Set to date of setup to use the latest API version
   }), react() // Required for Sanity Studio
-  , tailwind()]
+  , tailwind(), icon()]
 });

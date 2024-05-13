@@ -20,6 +20,7 @@
     "@types/react": "18.2.24",
     "@types/react-dom": "18.2.8",
     "astro": "3.2.2",
+    "astro-icon": "^1.1.0",
     "astro-lazy-youtube-embed": "^0.4.0",
     "astro-portabletext": "0.9.4",
     "autoprefixer": "10.4.16",
@@ -36,6 +37,8 @@
     "tailwindcss": "^3.4.3"
   },
   "devDependencies": {
+    "@iconify-json/ic": "^1.1.17",
+    "@iconify-json/mdi": "^1.1.66",
     "@portabletext/types": "^2.0.7",
     "@sanity/types": "^3.17.0",
     "@types/jquery": "^3.5.29",
