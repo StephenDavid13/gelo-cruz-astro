@@ -1,9 +1,23 @@
 ---
-import BGVideoLayout from "../../layouts/BGVideoLayout.astro";
+import Layout from "../../layouts/Layout.astro";
+import { Image } from 'astro:assets';
+import profileImage from '../../assets/Profile.jpg';
 
 ---
 
-<BGVideoLayout title="" addClass="isHomepage">
-  <h1 class="hidden">Unravel by Gelo Cruz out now</h1>
+<Layout title="" addClass="">
+  <div class="flex flex-col md:flex-row gap-8">
+    <div class="md:w-1/2">
+      <div class="profile-image md:min-w-[50vw] w-full h-full">
+        <Image src={profileImage} alt="Gelo Cruz Profile Image" width="1920" height="1280" class="w-full h-full" />
+      </div>
+    </div>
+    <div class="md:[&>*]:text-xl [&>*]:text-base md:w-1/2 md:py-10 py-0 mx-8 md: mr-32 mr-24 md:overflow-y-scroll overflow-y-auto md:h-[90vh] h-auto">
+      <p>Gelo Cruz started his musical journey as 'Invisibleants' back in 2011 while still in college. However, his musical roots stretch even further, having spent 5-6 years prior creating melodies and harmonies with friends and bandmates from 'Harlequin Carnivale/Involition'.</p>
+      <p>Amidst the collective creativity of band dynamics, Gelo produced several tracks that he knew wouldn't quite fit the ensemble's mold. Thus, his passion project, Invisibleants, emerged—a space where he could freely explore and express his musical identity beyond conventional boundaries. Though many of these creations remained tucked away in the depths of hard drives, some found their way into the light, often featuring collaborations with lifelong comrades from his school days.</p>
+      <p>In 2016, a pivotal shift occurred as Gelo redirected his focus towards touring and performing alongside 'December Avenue', further enriching his musical journey. The rest, as they say, is history.</p>
+      <p>However, the onset of the COVID-19 pandemic in 2020 prompted a reflective return to his roots. Revisiting the archives of Invisibleants, Gelo recognized the untapped potential of these tracks. With a renewed enthusiasm, he reimagined compositions—penning lyrics, rearranging, and embarking on a recording journey. Entrusting Tower of Doom with the vocal tracking, mixing, and mastering processes, he ensured that these tracks would be presented in their finest form for everyone to enjoy.</p>
+    </div>
+  </div>
   
-</BGVideoLayout>
+</Layout>
