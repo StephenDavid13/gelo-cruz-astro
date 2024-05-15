@@ -46,7 +46,9 @@ const { title, addClass } = Astro.props;
     />
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
-    <title>{title}</title>
+    {title != '' ? <title>{title} | Gelo Cruz</title> :
+      <title>Home | Gelo Cruz</title>
+    }
     <ViewTransitions />
   </head>
   <body class="overflow-hidden">
