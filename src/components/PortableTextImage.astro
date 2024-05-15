@@ -8,7 +8,7 @@ const webpUrl = urlForImage(asset).format('webp').url()
 
 ---
 
-<picture>
+<picture class="[&>img]:!max-w-[650px] [&>img]:my-8 [&>img]:mx-auto">
   <source
     srcset={webpUrl}
     type="image/webp"

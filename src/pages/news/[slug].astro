@@ -19,7 +19,7 @@ const { slug } = Astro.params as Params;
 const post = await getPost(slug);
 ---
 
-<Layout title={post.title!} addClass="">
+<Layout title={post.title!} addClass="no-scrollbar">
   {
     post.mainImage ? (
       <img
@@ -31,7 +31,7 @@ const post = await getPost(slug);
       <div class="post__cover--none" />
     )
   }
-  <section class="post mx-20 lg:ml-12 ml-4 pb-10">
+  <section class="post mx-20 lg:ml-12 ml-4 pb-10 no-scrollbar">
     <div class="post__container">
       <h1 class="post__title">{post.title}</h1>
       <p class="post__date">
@@ -47,7 +47,7 @@ const post = await getPost(slug);
 <style>
   .post__cover,
   .post__cover--none {
-    @apply w-full h-[450px] object-cover mb-10;
+    @apply w-full h-[500px] object-cover mb-10;
   }
 
   .post__cover--none {
