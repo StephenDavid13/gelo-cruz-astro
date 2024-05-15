@@ -34,6 +34,25 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'mainImagePos',
+      title: 'Main image Position',
+      type: 'string',
+      options: {
+        list: [
+          { title: "Center", value: "center" },
+          { title: "Top", value: "top" },
+          { title: "Bottom", value: "bottom" },
+          { title: "Left", value: "left" },
+          { title: "Right", value: "right" },
+          { title: "Left Top", value: "left top" },
+          { title: "Right Top", value: "right top" },
+          { title: "Left Bottom", value: "left bottom" },
+          { title: "Right Bottom", value: "right bottom" },
+        ]
+      },
+      initialValue: 'center',
+    }),
+    defineField({
       name: 'body',
       title: 'Body',
       type: 'blockContent',

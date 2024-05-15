@@ -17,16 +17,22 @@ type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 const { slug } = Astro.params as Params;
 
 const post = await getPost(slug);
+let backgroundURL = '';
+if(post.mainImage) {
+  backgroundURL = `background-image:url(${urlFor(post.mainImage).url()})`
+}
+let backgroundPos = '';
+if(post.mainImagePos) {
+  backgroundPos = post.mainImagePos;
+}
+
 ---
 
 <Layout title={post.title!} addClass="no-scrollbar">
   {
     post.mainImage ? (
-      <img
-        class="post__cover"
-        src={urlFor(post.mainImage).url()}
-        alt="Cover image"
-      />
+      
+      <div class:list={['post__cover', backgroundPos]} style={backgroundURL}></div>
     ) : (
       <div class="post__cover--none" />
     )
@@ -44,10 +50,10 @@ const post = await getPost(slug);
   </section>
 </Layout>
 
-<style>
-  .post__cover,
-  .post__cover--none {
-    @apply w-full h-[500px] object-cover mb-10;
+<style define:vars={{ backgroundPos }}>
+  .post__cover, .post__cover--none {
+    @apply w-full h-[500px] object-cover mb-10 bg-cover;
+    background-position: var(--backgroundPos);
   }
 
   .post__cover--none {
