@@ -1,8 +1,16 @@
+---
+import { Image } from "astro:assets";
+import profileImage from "../assets/Profile.jpg"
+---
+
 <div class="video-bg">
     <div id="youtubeEmbed"
     class="absolute top-1/2 left-1/2 md:w-[200vw] md:h-[200vh] md:-translate-x-[100vw] md:-translate-y-[100vh]
-    w-[200vh] h-full -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+    w-[200vh] h-full -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+      <Image src={profileImage} alt="Gelo Cruz Profile Image" width="1920" height="1280" class="w-full h-full object-cover" />
+    </div>
     <script type="text/javascript">
+
       const youtubeEmbedElement = document.getElementById("youtubeEmbed")
     
       // Add YouTube API script
@@ -12,7 +20,6 @@
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
     
       let player
-      let startSeconds = 0
     
       onYouTubeIframeAPIReady = function() {
         player = new YT.Player(youtubeEmbedElement, {
@@ -31,6 +38,7 @@
             rel: 0,
             enablejsapi: 1,
             mute: 1, 
+            
     
           },
           events: {
